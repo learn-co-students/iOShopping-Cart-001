@@ -57,17 +57,34 @@
 }
 
 - (NSArray *)allItemsWithName:(NSString *)name {
-    return nil;
+    NSMutableArray *matchingItems = [[NSMutableArray alloc] init];
+    for(NSUInteger i =0; i < [self.items count]; i++) {
+        if ([[self.items[i] name] isEqualToString:name]) {
+            [matchingItems addObject:self.items[i]];
+        }
+    }
+    return matchingItems;
     
 }
 
 - (NSArray *)allItemsWithMinimumPriceInCents:(NSUInteger)cents {
-    return nil;
-    
+    NSMutableArray *matchingItems = [[NSMutableArray alloc] init];
+    for(NSUInteger i =0; i < [self.items count]; i++) {
+        if ([self.items[i] priceInCents] >= cents) {
+            [matchingItems addObject:self.items[i]];
+        }
+    }
+    return matchingItems;
 }
 
 - (NSArray *)allItemsWithMaximumPriceInCents:(NSInteger)cents {
-    return nil;
+    NSMutableArray *matchingItems = [[NSMutableArray alloc] init];
+    for(NSUInteger i =0; i < [self.items count]; i++) {
+        if ([self.items[i] priceInCents] <= cents) {
+            [matchingItems addObject:self.items[i]];
+        }
+    }
+    return matchingItems;
 }
 
 @end
