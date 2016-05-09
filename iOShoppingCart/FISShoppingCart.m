@@ -32,19 +32,28 @@
 }
 
 - (void)sortItemsByNameAsc {
-    
+    NSSortDescriptor *itemsByNameAsc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:itemsByNameAsc, nil];
+    [self.items sortUsingDescriptors:sortDescriptors];
+
 }
 
 - (void)sortItemsByNameDesc {
-    
+    NSSortDescriptor *itemsByNameDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:itemsByNameDesc, nil];
+    [self.items sortUsingDescriptors:sortDescriptors];
 }
 
 - (void)sortItemsByPriceInCentsAsc {
-    
+    NSSortDescriptor *itemsByPriceInCentsAsc = [[NSSortDescriptor alloc] initWithKey:@"priceInCents" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:itemsByPriceInCentsAsc, nil];
+    [self.items sortUsingDescriptors:sortDescriptors];
 }
 
 - (void)sortItemsByPriceInCentsDesc {
-    
+    NSSortDescriptor *itemsByPriceInCentsDesc = [[NSSortDescriptor alloc] initWithKey:@"priceInCents" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:itemsByPriceInCentsDesc, nil];
+    [self.items sortUsingDescriptors:sortDescriptors];
 }
 
 - (NSArray *)allItemsWithName:(NSString *)name {
